@@ -33,12 +33,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.UsuarioTextBox = new System.Windows.Forms.TextBox();
             this.ContraseñaTextBox = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.AceptarButton = new System.Windows.Forms.Button();
             this.CancelarButton = new System.Windows.Forms.Button();
+            this.MostrarContraseñaButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -72,8 +73,13 @@
             // 
             this.ContraseñaTextBox.Location = new System.Drawing.Point(148, 83);
             this.ContraseñaTextBox.Name = "ContraseñaTextBox";
+            this.ContraseñaTextBox.PasswordChar = '*';
             this.ContraseñaTextBox.Size = new System.Drawing.Size(202, 22);
             this.ContraseñaTextBox.TabIndex = 3;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // AceptarButton
             // 
@@ -104,18 +110,26 @@
             this.CancelarButton.UseVisualStyleBackColor = true;
             this.CancelarButton.Click += new System.EventHandler(this.CancelarButton_Click);
             // 
+            // MostrarContraseñaButton
+            // 
+            this.MostrarContraseñaButton.Image = global::Vista.Properties.Resources.ver;
+            this.MostrarContraseñaButton.Location = new System.Drawing.Point(356, 86);
+            this.MostrarContraseñaButton.Name = "MostrarContraseñaButton";
+            this.MostrarContraseñaButton.Size = new System.Drawing.Size(29, 22);
+            this.MostrarContraseñaButton.TabIndex = 7;
+            this.MostrarContraseñaButton.UseVisualStyleBackColor = true;
+            this.MostrarContraseñaButton.Click += new System.EventHandler(this.MostrarContraseñaButton_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(372, 44);
+            this.pictureBox1.Image = global::Vista.Properties.Resources.jugador;
+            this.pictureBox1.Location = new System.Drawing.Point(391, 44);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(128, 106);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // Login
             // 
@@ -123,8 +137,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.CancelarButton;
-            this.ClientSize = new System.Drawing.Size(595, 207);
+            this.ClientSize = new System.Drawing.Size(557, 198);
             this.ControlBox = false;
+            this.Controls.Add(this.MostrarContraseñaButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.CancelarButton);
             this.Controls.Add(this.AceptarButton);
@@ -138,8 +153,8 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,6 +170,7 @@
         private System.Windows.Forms.Button CancelarButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button MostrarContraseñaButton;
     }
 }
 
