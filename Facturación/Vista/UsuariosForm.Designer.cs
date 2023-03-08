@@ -180,6 +180,7 @@
             this.AdjuntarFotoButton.Size = new System.Drawing.Size(45, 33);
             this.AdjuntarFotoButton.TabIndex = 16;
             this.AdjuntarFotoButton.UseVisualStyleBackColor = false;
+            this.AdjuntarFotoButton.Click += new System.EventHandler(this.AdjuntarFotoButton_Click);
             // 
             // FotoPictureBox
             // 
@@ -187,6 +188,7 @@
             this.FotoPictureBox.Location = new System.Drawing.Point(409, 24);
             this.FotoPictureBox.Name = "FotoPictureBox";
             this.FotoPictureBox.Size = new System.Drawing.Size(244, 216);
+            this.FotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.FotoPictureBox.TabIndex = 15;
             this.FotoPictureBox.TabStop = false;
             // 
@@ -202,7 +204,6 @@
             // 
             // ModificarButton
             // 
-            this.ModificarButton.Enabled = false;
             this.ModificarButton.Location = new System.Drawing.Point(285, 317);
             this.ModificarButton.Name = "ModificarButton";
             this.ModificarButton.Size = new System.Drawing.Size(84, 35);
@@ -245,6 +246,8 @@
             // 
             // UsuariosDataGridView
             // 
+            this.UsuariosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.UsuariosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UsuariosDataGridView.Location = new System.Drawing.Point(0, 379);
             this.UsuariosDataGridView.Name = "UsuariosDataGridView";
@@ -285,6 +288,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UsuariosForm";
             this.Text = "Usuarios";
+            this.Load += new System.EventHandler(this.UsuariosForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.FotoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuariosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

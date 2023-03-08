@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Datos;
+using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,9 @@ namespace Vista
             InitializeComponent();
         }
         string tipoOperacion;
+        DataTable dt = new DataTable();
+        UsuarioDB UsuarioDB = new UsuarioDB();
+        Usuario user = new Usuario();
         private void HabilitarControles()
         {
             CodigoTextBox.Enabled = true;
@@ -26,8 +31,9 @@ namespace Vista
             AdjuntarFotoButton.Enabled = true;
             GuardarButton.Enabled = true;
             CancelarButton.Enabled = true;
+            ModificarButton.Enabled = false;
         }
-        private void DesabilitarControles()
+        private void DeshabilitarControles()
         {
             CodigoTextBox.Enabled = false;
             NombreTextBox.Enabled = false;
@@ -38,6 +44,7 @@ namespace Vista
             AdjuntarFotoButton.Enabled = false;
             GuardarButton.Enabled = false;
             CancelarButton.Enabled = false;
+            ModificarButton.Enabled = true;
         }
 
         private void LimpiarControles()
@@ -46,7 +53,7 @@ namespace Vista
             NombreTextBox.Clear();
             ContraseñaTextBox.Clear();
             CorreoTextBox.Clear();
-            RolComboBox.Text = string.Empty;
+            RolComboBox.Text = "";
             EstaActivoCheckBox.Checked = false;
             FotoPictureBox.Image = null;
         }
@@ -59,7 +66,7 @@ namespace Vista
 
         private void CancelarButton_Click(object sender, EventArgs e)
         {
-            DesabilitarControles();
+            DeshabilitarControles();
             LimpiarControles();
         }
 
@@ -95,19 +102,68 @@ namespace Vista
                     return;
                 }
                 errorProvider1.Clear();
-            }
 
-            //Insertar en la Base de Datos
+                user.CodigoUsuario = CodigoTextBox.Text;
+                user.Nombre = NombreTextBox.Text;
+                user.Contraseña = ContraseñaTextBox.Text;
+                user.Rol = RolComboBox.Text;
+                user.Correo = CorreoTextBox.Text;
+                user.EstaActivo = EstaActivoCheckBox.Checked;
+
+                if (FotoPictureBox.Image != null)
+                {
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
+
+                    FotoPictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    user.Foto = ms.GetBuffer();
+                }
+
+                //Insertar en la Base de Datos
+                bool inserto = UsuarioDB.Insertar(user);
+                if (inserto)
+                {
+                    LimpiarControles();
+                    DeshabilitarControles();
+                    TraerUsuarios();
+                    MessageBox.Show("Registro Guardado");
+                }
+                else
+                {
+                    MessageBox.Show("No se Pudo Guardar el Registro");
+                }
+
+            }
             else if(tipoOperacion == "Modificar")
             {
 
             }
-
         }
 
         private void ModificarButton_Click(object sender, EventArgs e)
         {
             tipoOperacion = "Modificar";
+        }
+
+        private void AdjuntarFotoButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            DialogResult resultado = dialog.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                FotoPictureBox.Image = Image.FromFile(dialog.FileName);
+            }
+        }
+
+        private void UsuariosForm_Load(object sender, EventArgs e)
+        {
+            TraerUsuarios();
+        }
+
+        private void TraerUsuarios()
+        {
+            dt = UsuarioDB.DevolverUsuarios();
+            UsuariosDataGridView.DataSource = dt;
         }
     }
 }

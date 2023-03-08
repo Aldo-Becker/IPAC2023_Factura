@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Datos;
+using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class Login : Form
+    public partial class LoginForm : Form
     {
-        public Login()
+        public LoginForm()
         {
             InitializeComponent();
         }
@@ -40,12 +42,35 @@ namespace Vista
 
             //Validar de la Base de Datos
 
-            //Mostramos el Menú
+            Login login = new Login(UsuarioTextBox.Text,ContraseñaTextBox.Text);
+            Usuario usuario = new Usuario();
+            UsuarioDB usuarioDB = new UsuarioDB();
+
+            usuario = usuarioDB.Auntenticar(login);
+
+
+            if (usuario != null)
+            {
+                if (usuario.EstaActivo)
+                {
+                    //Mostramos el Menú
+                    Menu menuFormulario = new Menu();
+                    this.Hide();
+                    menuFormulario.Show();
+                }
+                else
+                {
+                    MessageBox.Show("El Usuario no Esta Activo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Datos de Usuario Incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             //instanciar objeto
-            Menu menuFormulario = new Menu();
-            this.Hide();
-            menuFormulario.Show();
+            
         }
 
         private void MostrarContraseñaButton_Click(object sender, EventArgs e)

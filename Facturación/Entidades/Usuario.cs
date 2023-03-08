@@ -40,7 +40,5 @@ namespace Entidades
             FechaCreacion = fechaCreacion;
             EstaActivo = estaActivo;
         }
-
-
     }
 }
