@@ -46,6 +46,8 @@
             this.ModificarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.EstaActivoCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.ImagenPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -145,6 +147,7 @@
             this.AdjuntarImagenButton.Size = new System.Drawing.Size(44, 33);
             this.AdjuntarImagenButton.TabIndex = 9;
             this.AdjuntarImagenButton.UseVisualStyleBackColor = false;
+            this.AdjuntarImagenButton.Click += new System.EventHandler(this.AdjuntarImagenButton_Click);
             // 
             // ProductosDataGridView
             // 
@@ -167,13 +170,13 @@
             // 
             // EliminarButton
             // 
-            this.EliminarButton.Enabled = false;
             this.EliminarButton.Location = new System.Drawing.Point(435, 251);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(75, 35);
             this.EliminarButton.TabIndex = 25;
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // GuardarButton
             // 
@@ -188,7 +191,6 @@
             // 
             // ModificarButton
             // 
-            this.ModificarButton.Enabled = false;
             this.ModificarButton.Location = new System.Drawing.Point(264, 251);
             this.ModificarButton.Name = "ModificarButton";
             this.ModificarButton.Size = new System.Drawing.Size(84, 35);
@@ -211,11 +213,32 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(17, 228);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 16);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "EstaActivo:";
+            // 
+            // EstaActivoCheckBox
+            // 
+            this.EstaActivoCheckBox.AutoSize = true;
+            this.EstaActivoCheckBox.Location = new System.Drawing.Point(121, 228);
+            this.EstaActivoCheckBox.Name = "EstaActivoCheckBox";
+            this.EstaActivoCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.EstaActivoCheckBox.TabIndex = 28;
+            this.EstaActivoCheckBox.UseVisualStyleBackColor = true;
+            // 
             // ProductosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(855, 454);
+            this.Controls.Add(this.EstaActivoCheckBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.CancelarButton);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.GuardarButton);
@@ -236,6 +259,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProductosForm";
             this.Text = "ProductosForm";
+            this.Load += new System.EventHandler(this.ProductosForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ImagenPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -263,5 +287,7 @@
         private System.Windows.Forms.Button ModificarButton;
         private System.Windows.Forms.Button NuevoButton;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.CheckBox EstaActivoCheckBox;
+        private System.Windows.Forms.Label label5;
     }
 }

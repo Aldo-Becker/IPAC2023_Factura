@@ -43,13 +43,13 @@
             this.EstaActivoCheckBox = new System.Windows.Forms.CheckBox();
             this.AdjuntarFotoButton = new System.Windows.Forms.Button();
             this.FotoPictureBox = new System.Windows.Forms.PictureBox();
-            this.NuevoButton = new System.Windows.Forms.Button();
             this.ModificarButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.CancelarButton = new System.Windows.Forms.Button();
             this.UsuariosDataGridView = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.NuevoButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.FotoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuariosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -192,19 +192,10 @@
             this.FotoPictureBox.TabIndex = 15;
             this.FotoPictureBox.TabStop = false;
             // 
-            // NuevoButton
-            // 
-            this.NuevoButton.Location = new System.Drawing.Point(182, 317);
-            this.NuevoButton.Name = "NuevoButton";
-            this.NuevoButton.Size = new System.Drawing.Size(82, 35);
-            this.NuevoButton.TabIndex = 17;
-            this.NuevoButton.Text = "Nuevo";
-            this.NuevoButton.UseVisualStyleBackColor = true;
-            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
-            // 
             // ModificarButton
             // 
-            this.ModificarButton.Location = new System.Drawing.Point(285, 317);
+            this.ModificarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ModificarButton.Location = new System.Drawing.Point(301, 317);
             this.ModificarButton.Name = "ModificarButton";
             this.ModificarButton.Size = new System.Drawing.Size(84, 35);
             this.ModificarButton.TabIndex = 18;
@@ -215,6 +206,7 @@
             // GuardarButton
             // 
             this.GuardarButton.Enabled = false;
+            this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuardarButton.Location = new System.Drawing.Point(391, 317);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(75, 35);
@@ -225,17 +217,19 @@
             // 
             // EliminarButton
             // 
-            this.EliminarButton.Enabled = false;
+            this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.Location = new System.Drawing.Point(484, 317);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(75, 35);
             this.EliminarButton.TabIndex = 20;
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // CancelarButton
             // 
             this.CancelarButton.Enabled = false;
+            this.CancelarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelarButton.Location = new System.Drawing.Point(589, 317);
             this.CancelarButton.Name = "CancelarButton";
             this.CancelarButton.Size = new System.Drawing.Size(78, 35);
@@ -249,14 +243,25 @@
             this.UsuariosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UsuariosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.UsuariosDataGridView.Location = new System.Drawing.Point(0, 379);
+            this.UsuariosDataGridView.Location = new System.Drawing.Point(0, 368);
             this.UsuariosDataGridView.Name = "UsuariosDataGridView";
-            this.UsuariosDataGridView.Size = new System.Drawing.Size(872, 175);
+            this.UsuariosDataGridView.Size = new System.Drawing.Size(872, 198);
             this.UsuariosDataGridView.TabIndex = 22;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // NuevoButton
+            // 
+            this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NuevoButton.Location = new System.Drawing.Point(204, 317);
+            this.NuevoButton.Name = "NuevoButton";
+            this.NuevoButton.Size = new System.Drawing.Size(82, 35);
+            this.NuevoButton.TabIndex = 17;
+            this.NuevoButton.Text = "Nuevo";
+            this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
             // UsuariosForm
             // 
@@ -283,7 +288,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CodigoTextBox);
             this.Controls.Add(this.label2);
-            this.Enabled = false;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UsuariosForm";
@@ -312,12 +316,12 @@
         private System.Windows.Forms.CheckBox EstaActivoCheckBox;
         private System.Windows.Forms.PictureBox FotoPictureBox;
         private System.Windows.Forms.Button AdjuntarFotoButton;
-        private System.Windows.Forms.Button NuevoButton;
         private System.Windows.Forms.Button ModificarButton;
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button EliminarButton;
         private System.Windows.Forms.Button CancelarButton;
         private System.Windows.Forms.DataGridView UsuariosDataGridView;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button NuevoButton;
     }
 }

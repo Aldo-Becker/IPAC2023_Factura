@@ -45,7 +45,10 @@ namespace Datos
                             user.Rol = dr["Rol"].ToString();
                             user.FechaCreacion = Convert.ToDateTime(dr["FechaCreacion"]);
                             user.EstaActivo =Convert.ToBoolean(dr["EstaActivo"]);
-                            user.Foto = (byte[])dr["Foto"];
+                            if (dr["Foto"].GetType() != typeof(DBNull))
+                            {
+                                user.Foto = (byte[])dr["Foto"];
+                            }
                         }
                     }
                 }
@@ -65,7 +68,7 @@ namespace Datos
             {
                 StringBuilder sql = new StringBuilder();
                 sql.Append(" INSERT INTO usuario VALUES ");
-                sql.Append("(@CodigoUsuario,@Nombre,@Contraseña,@Correo,@Rol,@Foto,@FechaCreacion,@EstaActivo); ");
+                sql.Append("(@CodigoUsuario,@Nombre,@Contrasena,@Correo,@Rol,@Foto,@FechaCreacion,@EstaActivo); ");
                 using (MySqlConnection _conexion = new MySqlConnection(cadena))
                 {
                     _conexion.Open();
@@ -98,7 +101,7 @@ namespace Datos
             {
                 StringBuilder sql = new StringBuilder();
                 sql.Append(" UPDATE usuario SET ");
-                sql.Append("Nombre = @Nombre, Contraseña = @Contraseña, Correo = @Correo, Rol = @Rol, Foto = @Foto, FechaCreacion = @FechaCreacion, EstaActivo = @EstaActivo ");
+                sql.Append("Nombre = @Nombre, Contrasena = @Contrasena, Correo = @Correo, Rol = @Rol, Foto = @Foto, FechaCreacion = @FechaCreacion, EstaActivo = @EstaActivo ");
                 sql.Append(" WHERE CodigoUsuario = @CodigoUsuario; ");
 
                 using (MySqlConnection _conexion = new MySqlConnection(cadena))
@@ -126,9 +129,12 @@ namespace Datos
             }
             return edito;
         }
+
         //metodo para eliminar usuario
         public bool Eliminar(string codigoUsuario)
         {
+
+
             bool elimino = false;
             try
             {
@@ -180,6 +186,34 @@ namespace Datos
             return dt;
         }
 
+        public byte[] DevolverFoto(string codigoUsuario)
+        {
+            byte[] foto = new byte[0];
+            try
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append(" SELECT Foto FROM usuario WHERE CodigoUsuario = @CodigoUsuario;");
+                using (MySqlConnection _conexion = new MySqlConnection(cadena))
+                {
+                    _conexion.Open();
+                    using (MySqlCommand comando = new MySqlCommand(sql.ToString(), _conexion))
+                    {
+                        comando.CommandType = CommandType.Text;
+                        comando.Parameters.Add("@CodigoUsuario", MySqlDbType.VarChar, 50).Value = codigoUsuario;
+                        MySqlDataReader dr = comando.ExecuteReader();
+                        if (dr.Read())
+                        {
+                            foto = (byte[])dr["Foto"];
+                        }
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+
+            }
+            return foto;
+        }
 
     }
 }
