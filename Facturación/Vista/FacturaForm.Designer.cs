@@ -30,24 +30,24 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.UsuarioTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.FechaDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.UsuarioTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.IdentidadTextBox = new System.Windows.Forms.TextBox();
-            this.BuscarClienteButton = new System.Windows.Forms.Button();
             this.NombreClienteTextBox = new System.Windows.Forms.TextBox();
+            this.BuscarClienteButton = new System.Windows.Forms.Button();
+            this.IdentidadTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.CodigoTextBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.BuscarProductoutton = new System.Windows.Forms.Button();
-            this.DescripcionProductoTextBox = new System.Windows.Forms.TextBox();
-            this.ExistenciaTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.CantidadTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.ExistenciaTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.DescripcionProductoTextBox = new System.Windows.Forms.TextBox();
+            this.BuscarProductoutton = new System.Windows.Forms.Button();
+            this.CodigoTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.DetalleDataGridView = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.SubTotalTextBox = new System.Windows.Forms.TextBox();
@@ -87,22 +87,13 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // label2
+            // FechaDateTimePicker
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Usuario:";
-            // 
-            // UsuarioTextBox
-            // 
-            this.UsuarioTextBox.Location = new System.Drawing.Point(86, 21);
-            this.UsuarioTextBox.Name = "UsuarioTextBox";
-            this.UsuarioTextBox.ReadOnly = true;
-            this.UsuarioTextBox.Size = new System.Drawing.Size(184, 22);
-            this.UsuarioTextBox.TabIndex = 1;
+            this.FechaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.FechaDateTimePicker.Location = new System.Drawing.Point(721, 21);
+            this.FechaDateTimePicker.Name = "FechaDateTimePicker";
+            this.FechaDateTimePicker.Size = new System.Drawing.Size(132, 22);
+            this.FechaDateTimePicker.TabIndex = 3;
             // 
             // label3
             // 
@@ -113,13 +104,22 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Fecha:";
             // 
-            // FechaDateTimePicker
+            // UsuarioTextBox
             // 
-            this.FechaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.FechaDateTimePicker.Location = new System.Drawing.Point(721, 21);
-            this.FechaDateTimePicker.Name = "FechaDateTimePicker";
-            this.FechaDateTimePicker.Size = new System.Drawing.Size(132, 22);
-            this.FechaDateTimePicker.TabIndex = 3;
+            this.UsuarioTextBox.Location = new System.Drawing.Point(86, 21);
+            this.UsuarioTextBox.Name = "UsuarioTextBox";
+            this.UsuarioTextBox.ReadOnly = true;
+            this.UsuarioTextBox.Size = new System.Drawing.Size(184, 22);
+            this.UsuarioTextBox.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Usuario:";
             // 
             // groupBox2
             // 
@@ -134,21 +134,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Cliente";
             // 
-            // label4
+            // NombreClienteTextBox
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 16);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Identidad:";
-            // 
-            // IdentidadTextBox
-            // 
-            this.IdentidadTextBox.Location = new System.Drawing.Point(86, 28);
-            this.IdentidadTextBox.Name = "IdentidadTextBox";
-            this.IdentidadTextBox.Size = new System.Drawing.Size(184, 22);
-            this.IdentidadTextBox.TabIndex = 2;
+            this.NombreClienteTextBox.Location = new System.Drawing.Point(308, 28);
+            this.NombreClienteTextBox.Name = "NombreClienteTextBox";
+            this.NombreClienteTextBox.ReadOnly = true;
+            this.NombreClienteTextBox.Size = new System.Drawing.Size(545, 22);
+            this.NombreClienteTextBox.TabIndex = 4;
             // 
             // BuscarClienteButton
             // 
@@ -160,13 +152,21 @@
             this.BuscarClienteButton.Text = "...";
             this.BuscarClienteButton.UseVisualStyleBackColor = false;
             // 
-            // NombreClienteTextBox
+            // IdentidadTextBox
             // 
-            this.NombreClienteTextBox.Location = new System.Drawing.Point(308, 28);
-            this.NombreClienteTextBox.Name = "NombreClienteTextBox";
-            this.NombreClienteTextBox.ReadOnly = true;
-            this.NombreClienteTextBox.Size = new System.Drawing.Size(545, 22);
-            this.NombreClienteTextBox.TabIndex = 4;
+            this.IdentidadTextBox.Location = new System.Drawing.Point(86, 28);
+            this.IdentidadTextBox.Name = "IdentidadTextBox";
+            this.IdentidadTextBox.Size = new System.Drawing.Size(184, 22);
+            this.IdentidadTextBox.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 16);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Identidad:";
             // 
             // groupBox3
             // 
@@ -185,39 +185,21 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos Producto";
             // 
-            // CodigoTextBox
+            // CantidadTextBox
             // 
-            this.CodigoTextBox.Location = new System.Drawing.Point(86, 30);
-            this.CodigoTextBox.Name = "CodigoTextBox";
-            this.CodigoTextBox.Size = new System.Drawing.Size(184, 22);
-            this.CodigoTextBox.TabIndex = 4;
+            this.CantidadTextBox.Location = new System.Drawing.Point(722, 64);
+            this.CantidadTextBox.Name = "CantidadTextBox";
+            this.CantidadTextBox.Size = new System.Drawing.Size(132, 22);
+            this.CantidadTextBox.TabIndex = 10;
             // 
-            // label5
+            // label7
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 33);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 16);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Código :";
-            // 
-            // BuscarProductoutton
-            // 
-            this.BuscarProductoutton.BackColor = System.Drawing.Color.White;
-            this.BuscarProductoutton.Location = new System.Drawing.Point(276, 30);
-            this.BuscarProductoutton.Name = "BuscarProductoutton";
-            this.BuscarProductoutton.Size = new System.Drawing.Size(26, 23);
-            this.BuscarProductoutton.TabIndex = 5;
-            this.BuscarProductoutton.Text = "...";
-            this.BuscarProductoutton.UseVisualStyleBackColor = false;
-            // 
-            // DescripcionProductoTextBox
-            // 
-            this.DescripcionProductoTextBox.Location = new System.Drawing.Point(308, 30);
-            this.DescripcionProductoTextBox.Name = "DescripcionProductoTextBox";
-            this.DescripcionProductoTextBox.ReadOnly = true;
-            this.DescripcionProductoTextBox.Size = new System.Drawing.Size(545, 22);
-            this.DescripcionProductoTextBox.TabIndex = 6;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(638, 67);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 16);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Cantidad:";
             // 
             // ExistenciaTextBox
             // 
@@ -235,21 +217,39 @@
             this.label6.TabIndex = 7;
             this.label6.Text = "Existencia :";
             // 
-            // CantidadTextBox
+            // DescripcionProductoTextBox
             // 
-            this.CantidadTextBox.Location = new System.Drawing.Point(722, 64);
-            this.CantidadTextBox.Name = "CantidadTextBox";
-            this.CantidadTextBox.Size = new System.Drawing.Size(132, 22);
-            this.CantidadTextBox.TabIndex = 10;
+            this.DescripcionProductoTextBox.Location = new System.Drawing.Point(308, 30);
+            this.DescripcionProductoTextBox.Name = "DescripcionProductoTextBox";
+            this.DescripcionProductoTextBox.ReadOnly = true;
+            this.DescripcionProductoTextBox.Size = new System.Drawing.Size(545, 22);
+            this.DescripcionProductoTextBox.TabIndex = 6;
             // 
-            // label7
+            // BuscarProductoutton
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(638, 67);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 16);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Cantidad:";
+            this.BuscarProductoutton.BackColor = System.Drawing.Color.White;
+            this.BuscarProductoutton.Location = new System.Drawing.Point(276, 30);
+            this.BuscarProductoutton.Name = "BuscarProductoutton";
+            this.BuscarProductoutton.Size = new System.Drawing.Size(26, 23);
+            this.BuscarProductoutton.TabIndex = 5;
+            this.BuscarProductoutton.Text = "...";
+            this.BuscarProductoutton.UseVisualStyleBackColor = false;
+            // 
+            // CodigoTextBox
+            // 
+            this.CodigoTextBox.Location = new System.Drawing.Point(86, 30);
+            this.CodigoTextBox.Name = "CodigoTextBox";
+            this.CodigoTextBox.Size = new System.Drawing.Size(184, 22);
+            this.CodigoTextBox.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 33);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 16);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Código :";
             // 
             // DetalleDataGridView
             // 
@@ -334,6 +334,7 @@
             this.GuardarButton.TabIndex = 16;
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.UseVisualStyleBackColor = true;
+            
             // 
             // CancelarButton
             // 
@@ -366,7 +367,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FacturaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Factura";

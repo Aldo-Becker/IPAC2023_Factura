@@ -41,10 +41,10 @@ namespace Datos
                             user.CodigoUsuario = dr["CodigoUsuario"].ToString();
                             user.Nombre = dr["Nombre"].ToString();
                             user.Contraseña = dr["Contrasena"].ToString();
-                            user.Correo = dr["Correo"].ToString();
                             user.Rol = dr["Rol"].ToString();
                             user.FechaCreacion = Convert.ToDateTime(dr["FechaCreacion"]);
                             user.EstaActivo =Convert.ToBoolean(dr["EstaActivo"]);
+                            user.Correo = dr["Correo"].ToString();
                             if (dr["Foto"].GetType() != typeof(DBNull))
                             {
                                 user.Foto = (byte[])dr["Foto"];
@@ -68,7 +68,7 @@ namespace Datos
             {
                 StringBuilder sql = new StringBuilder();
                 sql.Append(" INSERT INTO usuario VALUES ");
-                sql.Append("(@CodigoUsuario,@Nombre,@Contrasena,@Correo,@Rol,@Foto,@FechaCreacion,@EstaActivo); ");
+                sql.Append("(@CodigoUsuario, @Nombre, @Contrasena, @Rol, @Foto, @FechaCreacion, @EstaActivo, @Correo); ");
                 using (MySqlConnection _conexion = new MySqlConnection(cadena))
                 {
                     _conexion.Open();
@@ -78,11 +78,11 @@ namespace Datos
                         comando.Parameters.Add("@CodigoUsuario", MySqlDbType.VarChar, 50).Value = user.CodigoUsuario;
                         comando.Parameters.Add("@Nombre", MySqlDbType.VarChar, 50).Value = user.Nombre;
                         comando.Parameters.Add("@Contrasena", MySqlDbType.VarChar, 80).Value = user.Contraseña;
-                        comando.Parameters.Add("@Correo", MySqlDbType.VarChar, 45).Value = user.Correo;
                         comando.Parameters.Add("@Rol", MySqlDbType.VarChar, 20).Value = user.Rol;
                         comando.Parameters.Add("@Foto", MySqlDbType.LongBlob).Value = user.Foto;
                         comando.Parameters.Add("@FechaCreacion", MySqlDbType.DateTime).Value = user.FechaCreacion;
                         comando.Parameters.Add("@EstaActivo", MySqlDbType.Bit).Value = user.EstaActivo;
+                        comando.Parameters.Add("@Correo", MySqlDbType.VarChar, 45).Value = user.Correo;
                         comando.ExecuteNonQuery();
                         inserto = true;
                     }

@@ -98,6 +98,7 @@
             this.ContraseñaTextBox.Name = "ContraseñaTextBox";
             this.ContraseñaTextBox.Size = new System.Drawing.Size(218, 22);
             this.ContraseñaTextBox.TabIndex = 7;
+           
             // 
             // label3
             // 
@@ -144,7 +145,7 @@
             this.RolComboBox.FormattingEnabled = true;
             this.RolComboBox.Items.AddRange(new object[] {
             "Administrador",
-            "Usuarios"});
+            "Usuario"});
             this.RolComboBox.Location = new System.Drawing.Point(109, 224);
             this.RolComboBox.Name = "RolComboBox";
             this.RolComboBox.Size = new System.Drawing.Size(218, 24);
