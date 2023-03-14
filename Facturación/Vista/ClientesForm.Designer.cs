@@ -205,6 +205,7 @@
             this.FechaNacimientoDateTimePicker.Name = "FechaNacimientoDateTimePicker";
             this.FechaNacimientoDateTimePicker.Size = new System.Drawing.Size(164, 22);
             this.FechaNacimientoDateTimePicker.TabIndex = 49;
+            this.FechaNacimientoDateTimePicker.ValueChanged += new System.EventHandler(this.FechaNacimientoDateTimePicker_ValueChanged);
             // 
             // CancelarButton
             // 
@@ -291,6 +292,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ClientesForm";
             this.Text = "Clientes";
+            this.Load += new System.EventHandler(this.ClientesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ClientesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

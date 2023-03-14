@@ -38,7 +38,8 @@ namespace Vista
                 TelefonoTextBox.Text = ClientesDataGridView.CurrentRow.Cells["Telefono"].Value.ToString();
                 CorreoTextBox.Text = ClientesDataGridView.CurrentRow.Cells["Corroe"].Value.ToString();
                 DireccionTextBox.Text = ClientesDataGridView.CurrentRow.Cells["Direccion"].Value.ToString();
-                EstaActivoCheckBox.Checked = Convert.ToBoolean(ClientesDataGridView.CurrentRow.Cells["Identidad"].Value);
+                //FechaNacimientoDateTimePicker = Convert.ToDateTime(ClientesDataGridView.CurrentRow.Cells["FechaNacimiento"].Value);
+                EstaActivoCheckBox.Checked = Convert.ToBoolean(ClientesDataGridView.CurrentRow.Cells["EstaActivo"].Value);
 
                 HabilitarControles();
                 IdentidadTextBox.ReadOnly = true;
@@ -83,6 +84,7 @@ namespace Vista
             TelefonoTextBox.Clear();
             CorreoTextBox.Clear();
             DireccionTextBox.Clear();
+            FechaNacimientoDateTimePicker = null;
             EstaActivoCheckBox.Checked = false; 
         }
 
@@ -94,7 +96,78 @@ namespace Vista
             cliente.Telefono = TelefonoTextBox.Text;
             cliente.Correo = CorreoTextBox.Text;
             cliente.Direccion = DireccionTextBox.Text;
+            cliente.FechaNacimiento = FechaNacimientoDateTimePicker.Value;
             cliente.EstaActivo = EstaActivoCheckBox.Checked;
+
+            if (clienteOperacion == "Nuevo")
+            {
+                if (string.IsNullOrEmpty(IdentidadTextBox.Text))
+                {
+                    errorProvider1.SetError(IdentidadTextBox, "Ingrese una Identidad");
+                    IdentidadTextBox.Focus();
+                    return;
+                }
+                errorProvider1.Clear();
+                if (string.IsNullOrEmpty(NombreTextBox.Text))
+                {
+                    errorProvider1.SetError(NombreTextBox, "Ingrese un Nombre");
+                    NombreTextBox.Focus();
+                    return;
+                }
+                errorProvider1.Clear();
+                if (string.IsNullOrEmpty(TelefonoTextBox.Text))
+                {
+                    errorProvider1.SetError(TelefonoTextBox, "Ingrese un Número de Teléfono");
+                    TelefonoTextBox.Focus();
+                    return;
+                }
+                errorProvider1.Clear();
+                if (string.IsNullOrEmpty(CorreoTextBox.Text))
+                {
+                    errorProvider1.SetError(CorreoTextBox, "Ingrese un Correo");
+                    CorreoTextBox.Focus();
+                    return;
+                }
+                errorProvider1.Clear();
+                if (string.IsNullOrEmpty(DireccionTextBox.Text))
+                {
+                    errorProvider1.SetError(DireccionTextBox, "Ingrese una Dirección");
+                    DireccionTextBox.Focus();
+                    return;
+                }
+                errorProvider1.Clear();
+
+                //Insertar en la Base de Datos
+                bool inserto = clienteDB.Insertar(cliente);
+                if (inserto)
+                {
+                    LimpiarControles();
+                    DeshabilitarControles();
+                    //TraerClientes();
+                    MessageBox.Show("Registro Guardado");
+                }
+                else
+                {
+                    MessageBox.Show("No se Pudo Guardar el Registro");
+                }
+            }
+            else if (clienteOperacion == "Modificar")
+            {
+                bool modifico = clienteDB.Editar(cliente);
+
+                if (modifico)
+                {
+                    IdentidadTextBox.ReadOnly = false;
+                    DeshabilitarControles();
+                    LimpiarControles();
+                    TraerClientes();
+                    MessageBox.Show("Registro Acctualizado con Exito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se Pudo Actualizar el Registro", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void CancelarButton_Click(object sender, EventArgs e)
@@ -103,10 +176,10 @@ namespace Vista
             LimpiarControles();
         }
 
-        //private void TraerClientes()
-        //{
-        //    ClientesDataGridView.DataSource = ClienteDB.DevolverClientes();
-        //}
+        private void TraerClientes()
+        {
+            ClientesDataGridView.DataSource = clienteDB.DevolverClientes();
+        }
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
@@ -122,7 +195,7 @@ namespace Vista
                     {
                         LimpiarControles();
                         DeshabilitarControles();
-                        //TraerClientes();
+                        TraerClientes();
                         MessageBox.Show("Registro Eliminado");
                     }
                     else
@@ -133,6 +206,14 @@ namespace Vista
             }
         }
 
-        
+        private void ClientesForm_Load(object sender, EventArgs e)
+        {
+            TraerClientes();
+        }
+
+        private void FechaNacimientoDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
