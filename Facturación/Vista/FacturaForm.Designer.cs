@@ -46,7 +46,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.DescripcionProductoTextBox = new System.Windows.Forms.TextBox();
             this.BuscarProductoutton = new System.Windows.Forms.Button();
-            this.CodigoTextBox = new System.Windows.Forms.TextBox();
+            this.CodigoProductoTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.DetalleDataGridView = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
@@ -151,6 +151,7 @@
             this.BuscarClienteButton.TabIndex = 3;
             this.BuscarClienteButton.Text = "...";
             this.BuscarClienteButton.UseVisualStyleBackColor = false;
+            this.BuscarClienteButton.Click += new System.EventHandler(this.BuscarClienteButton_Click);
             // 
             // IdentidadTextBox
             // 
@@ -158,6 +159,7 @@
             this.IdentidadTextBox.Name = "IdentidadTextBox";
             this.IdentidadTextBox.Size = new System.Drawing.Size(184, 22);
             this.IdentidadTextBox.TabIndex = 2;
+            this.IdentidadTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IdentidadTextBox_KeyPress);
             // 
             // label4
             // 
@@ -176,7 +178,7 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.DescripcionProductoTextBox);
             this.groupBox3.Controls.Add(this.BuscarProductoutton);
-            this.groupBox3.Controls.Add(this.CodigoTextBox);
+            this.groupBox3.Controls.Add(this.CodigoProductoTextBox);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Location = new System.Drawing.Point(1, 185);
             this.groupBox3.Name = "groupBox3";
@@ -191,6 +193,7 @@
             this.CantidadTextBox.Name = "CantidadTextBox";
             this.CantidadTextBox.Size = new System.Drawing.Size(132, 22);
             this.CantidadTextBox.TabIndex = 10;
+            this.CantidadTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CantidadTextBox_KeyPress);
             // 
             // label7
             // 
@@ -234,13 +237,15 @@
             this.BuscarProductoutton.TabIndex = 5;
             this.BuscarProductoutton.Text = "...";
             this.BuscarProductoutton.UseVisualStyleBackColor = false;
+            this.BuscarProductoutton.Click += new System.EventHandler(this.BuscarProductoutton_Click);
             // 
-            // CodigoTextBox
+            // CodigoProductoTextBox
             // 
-            this.CodigoTextBox.Location = new System.Drawing.Point(86, 30);
-            this.CodigoTextBox.Name = "CodigoTextBox";
-            this.CodigoTextBox.Size = new System.Drawing.Size(184, 22);
-            this.CodigoTextBox.TabIndex = 4;
+            this.CodigoProductoTextBox.Location = new System.Drawing.Point(86, 30);
+            this.CodigoProductoTextBox.Name = "CodigoProductoTextBox";
+            this.CodigoProductoTextBox.Size = new System.Drawing.Size(184, 22);
+            this.CodigoProductoTextBox.TabIndex = 4;
+            this.CodigoProductoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoProductoTextBox_KeyPress);
             // 
             // label5
             // 
@@ -253,6 +258,7 @@
             // 
             // DetalleDataGridView
             // 
+            this.DetalleDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DetalleDataGridView.Location = new System.Drawing.Point(1, 286);
             this.DetalleDataGridView.Name = "DetalleDataGridView";
@@ -334,7 +340,7 @@
             this.GuardarButton.TabIndex = 16;
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.UseVisualStyleBackColor = true;
-            
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
             // CancelarButton
             // 
@@ -371,6 +377,7 @@
             this.Name = "FacturaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Factura";
+            this.Load += new System.EventHandler(this.FacturaForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -403,7 +410,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox DescripcionProductoTextBox;
         private System.Windows.Forms.Button BuscarProductoutton;
-        private System.Windows.Forms.TextBox CodigoTextBox;
+        private System.Windows.Forms.TextBox CodigoProductoTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView DetalleDataGridView;
         private System.Windows.Forms.Label label8;

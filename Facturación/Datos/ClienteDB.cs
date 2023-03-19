@@ -133,6 +133,32 @@ namespace Datos
             return dt;
         }
 
+        public DataTable DevolverClientesPorNombre(string nombre)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append(" SELECT * FROM cliente WHERE Nombre Like '%" + nombre + "%'");
+
+                using (MySqlConnection _conexion = new MySqlConnection(cadena))
+                {
+                    _conexion.Open();
+                    using (MySqlCommand comando = new MySqlCommand(sql.ToString(), _conexion))
+                    {
+                        comando.CommandType = CommandType.Text;
+                        MySqlDataReader dr = comando.ExecuteReader();
+                        dt.Load(dr);
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+
+            }
+            return dt;
+        }
+
         public Cliente DevolverClientePorIdentidad(string identidad)
         {
             Cliente cliente = null;
@@ -146,6 +172,7 @@ namespace Datos
                     using (MySqlCommand comando = new MySqlCommand(sql.ToString(), _conexion))
                     {
                         comando.CommandType = CommandType.Text;
+                        comando.Parameters.Add("@Identidad", MySqlDbType.VarChar, 25).Value = identidad;
                         MySqlDataReader dr = comando.ExecuteReader();
                         if (dr.Read())
                         {
