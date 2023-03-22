@@ -199,13 +199,14 @@
             // FechaNacimientoDateTimePicker
             // 
             this.FechaNacimientoDateTimePicker.Enabled = false;
-            this.FechaNacimientoDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.FechaNacimientoDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.FechaNacimientoDateTimePicker.Location = new System.Drawing.Point(202, 165);
             this.FechaNacimientoDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.FechaNacimientoDateTimePicker.Name = "FechaNacimientoDateTimePicker";
             this.FechaNacimientoDateTimePicker.Size = new System.Drawing.Size(164, 22);
             this.FechaNacimientoDateTimePicker.TabIndex = 49;
             this.FechaNacimientoDateTimePicker.ValueChanged += new System.EventHandler(this.FechaNacimientoDateTimePicker_ValueChanged);
+            this.FechaNacimientoDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FechaNacimientoDateTimePicker_KeyDown);
             // 
             // CancelarButton
             // 

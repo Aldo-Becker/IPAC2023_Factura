@@ -74,11 +74,8 @@ namespace Datos
                                 cmd3.ExecuteNonQuery();
                             }
                         }
-
                         transaccion.Commit();
                         inserto = true;
-
-
                     }
                     catch (System.Exception ex)
                     {

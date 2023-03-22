@@ -133,8 +133,6 @@ namespace Datos
         //metodo para eliminar usuario
         public bool Eliminar(string codigoUsuario)
         {
-
-
             bool elimino = false;
             try
             {

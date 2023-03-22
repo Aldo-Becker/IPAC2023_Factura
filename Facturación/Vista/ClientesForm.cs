@@ -19,8 +19,9 @@ namespace Vista
         }
         
         string clienteOperacion;
-        Cliente cliente;
+        Cliente cliente = new Cliente();
         ClienteDB clienteDB = new ClienteDB();
+        
 
         private void NuevoButton_Click(object sender, EventArgs e)
         {
@@ -36,19 +37,16 @@ namespace Vista
                 IdentidadTextBox.Text = ClientesDataGridView.CurrentRow.Cells["Identidad"].Value.ToString();
                 NombreTextBox.Text = ClientesDataGridView.CurrentRow.Cells["Nombre"].Value.ToString();
                 TelefonoTextBox.Text = ClientesDataGridView.CurrentRow.Cells["Telefono"].Value.ToString();
-                CorreoTextBox.Text = ClientesDataGridView.CurrentRow.Cells["Corroe"].Value.ToString();
+                CorreoTextBox.Text = ClientesDataGridView.CurrentRow.Cells["Correo"].Value.ToString();
                 DireccionTextBox.Text = ClientesDataGridView.CurrentRow.Cells["Direccion"].Value.ToString();
-                //FechaNacimientoDateTimePicker = Convert.ToDateTime(ClientesDataGridView.CurrentRow.Cells["FechaNacimiento"].Value);
                 EstaActivoCheckBox.Checked = Convert.ToBoolean(ClientesDataGridView.CurrentRow.Cells["EstaActivo"].Value);
 
                 HabilitarControles();
-                IdentidadTextBox.ReadOnly = true;
             }
             else
             {
                 MessageBox.Show("Debe Seleccionar un Registro");
             }
-
         }
 
         public void HabilitarControles()
@@ -90,15 +88,7 @@ namespace Vista
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            cliente = new Cliente();
-            cliente.Identidad = IdentidadTextBox.Text;
-            cliente.Nombre = NombreTextBox.Text;
-            cliente.Telefono = TelefonoTextBox.Text;
-            cliente.Correo = CorreoTextBox.Text;
-            cliente.Direccion = DireccionTextBox.Text;
-            cliente.FechaNacimiento = FechaNacimientoDateTimePicker.Value;
-            cliente.EstaActivo = EstaActivoCheckBox.Checked;
-
+            
             if (clienteOperacion == "Nuevo")
             {
                 if (string.IsNullOrEmpty(IdentidadTextBox.Text))
@@ -137,13 +127,21 @@ namespace Vista
                 }
                 errorProvider1.Clear();
 
+                cliente.Identidad = IdentidadTextBox.Text;
+                cliente.Nombre = NombreTextBox.Text;
+                cliente.Telefono = TelefonoTextBox.Text;
+                cliente.Correo = CorreoTextBox.Text;
+                cliente.Direccion = DireccionTextBox.Text;
+                cliente.FechaNacimiento = FechaNacimientoDateTimePicker.Value;
+                cliente.EstaActivo = EstaActivoCheckBox.Checked;
+
                 //Insertar en la Base de Datos
                 bool inserto = clienteDB.Insertar(cliente);
                 if (inserto)
                 {
                     LimpiarControles();
                     DeshabilitarControles();
-                    //TraerClientes();
+                    TraerClientes();
                     MessageBox.Show("Registro Guardado");
                 }
                 else
@@ -153,11 +151,19 @@ namespace Vista
             }
             else if (clienteOperacion == "Modificar")
             {
+                cliente.Identidad = IdentidadTextBox.Text;
+                cliente.Nombre = NombreTextBox.Text;
+                cliente.Telefono = TelefonoTextBox.Text;
+                cliente.Correo = CorreoTextBox.Text;
+                cliente.Direccion = DireccionTextBox.Text;
+                cliente.FechaNacimiento = FechaNacimientoDateTimePicker.Value;
+                cliente.EstaActivo = EstaActivoCheckBox.Checked;
+               
                 bool modifico = clienteDB.Editar(cliente);
 
                 if (modifico)
                 {
-                    IdentidadTextBox.ReadOnly = false;
+                    //IdentidadTextBox.ReadOnly = false;
                     DeshabilitarControles();
                     LimpiarControles();
                     TraerClientes();
@@ -189,7 +195,7 @@ namespace Vista
 
                 if (resultado == DialogResult.Yes)
                 {
-                    bool elimino = clienteDB.Eliminar(ClientesDataGridView.CurrentRow.Cells["Codigo"].Value.ToString());
+                    bool elimino = clienteDB.Eliminar(ClientesDataGridView.CurrentRow.Cells["Identidad"].Value.ToString());
 
                     if (elimino)
                     {
@@ -213,7 +219,15 @@ namespace Vista
 
         private void FechaNacimientoDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
+            FechaNacimientoDateTimePicker.CustomFormat = "dd/MM/yyyy";
+        }
 
+        private void FechaNacimientoDateTimePicker_KeyDown(object sender, KeyEventArgs e)
+        {
+            if((e.KeyCode == Keys.Back) || (e.KeyCode == Keys.Delete))
+            {
+                FechaNacimientoDateTimePicker.CustomFormat = " ";
+            }
         }
     }
 }
